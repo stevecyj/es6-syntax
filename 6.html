@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script>
+            function getData(callback) {
+                let req = new XMLHttpRequest();
+                req.open('get', 'https://www.fastmock.site/mock/028078cc45f813b3039e6ae524a52845/test/test');
+                req.onload = function() {
+                    callback(this.responseText);
+                };
+                req.send();
+            }
+            getData(function(result) {
+                alert(result); //這個alert 會先執行
+            });
+        </script>
+    </head>
+    <body></body>
+</html>
