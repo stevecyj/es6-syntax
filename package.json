@@ -1,0 +1,23 @@
+{
+  "name": "es6-syntax",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stevecyj/es6-syntax.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stevecyj/es6-syntax/issues"
+  },
+  "homepage": "https://github.com/stevecyj/es6-syntax#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-plugin-react": "^7.18.3"
+  }
+}
