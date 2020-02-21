@@ -18,14 +18,14 @@
             class MyHeadList extends React.Component {
                 constructor(props) {
                     super(props);
-                    this.state = { maxLevel: 1 };
+                    this.state = { maxLevel: props.start };
                 }
                 componentWillMount() {
                     //組件將要繪製前的時刻
                     this.intervalId = window.setInterval(() => {
                         //每秒鐘執行這裡的邏輯
                         this.setState((currentState, currentProps) => {
-                            if (currentState.maxLevel > 6) {
+                            if (currentState.maxLevel > currentProps.end + 1) {
                                 //不要更新
                                 return currentState;
                             } else {
@@ -52,7 +52,7 @@
             }
             window.addEventListener('load', () => {
                 // 1. 建立自訂的 React 組件實體
-                let myComponent = React.createElement(MyHeadList, null);
+                let myComponent = React.createElement(MyHeadList, { start: 3, end: 4 });
                 // 2. 將建立好的 React 組件實體 畫到容器中
                 ReactDOM.render(myComponent, document.body);
             });
