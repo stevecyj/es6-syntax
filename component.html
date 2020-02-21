@@ -18,14 +18,29 @@
             class MyHeadList extends React.Component {
                 constructor(props) {
                     super(props);
-                    this.state = { maxLevel: 3 };
-                    window.setTimeout(() => {
-                        // 2秒後，執行這裡的程式碼
-                        // this.setState({ maxLevel: 6 });
-                        this.setState((currentState, currentProps) => ({ maxLevel: currentState.maxLevel + 1 }));
-                    }, 2000);
+                    this.state = { maxLevel: 1 };
+                }
+                componentWillMount() {
+                    //組件將要繪製前的時刻
+                    this.intervalId = window.setInterval(() => {
+                        //每秒鐘執行這裡的邏輯
+                        this.setState((currentState, currentProps) => {
+                            if (currentState.maxLevel > 6) {
+                                //不要更新
+                                return currentState;
+                            } else {
+                                //maxLevel+1
+                                return { maxLevel: currentState.maxLevel + 1 };
+                            }
+                        });
+                    }, 1000);
+                }
+                componentWillUnmount() {
+                    // 組件將要刪除前的時刻
+                    window.clearInterval(this.intervalId);
                 }
                 render() {
+                    //  繪製 MyHeadList 組件的邏輯
                     let heads = [];
                     let head;
                     for (let i = 1; i < this.state.maxLevel; i++) {
