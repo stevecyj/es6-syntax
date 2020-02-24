@@ -2,6 +2,7 @@ class Car {
     constructor(color) {
         this.color = color;
         this.speed = 0;
+        console.log('建構式被呼叫');
     }
 
     run(speed) {
